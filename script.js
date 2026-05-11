@@ -10,7 +10,7 @@ const restaurants = [
     signature: "Hand-cut kalguksu, cabbage pancakes, boiled pork",
     reservationUrl: "https://english.visitseoul.net/restaurants/andongjip-sonkalguksi/ENP32dncy",
     platform: "Walk-in / phone check",
-    release: { type: "walkin", label: "No reliable online booking window found. Plan an opening-time visit." },
+    release: { type: "walkin", label: "No reliable online booking window found. Plan an opening-time visit.", lead: "Go at opening during your trip." },
     confidence: "Current guides conflict on Sunday hours, so verify day-of before crossing town.",
     map: [88, 250]
   },
@@ -25,7 +25,7 @@ const restaurants = [
     signature: "Korean omakase drinking table",
     reservationUrl: "tel:+821075392020",
     platform: "Phone only",
-    release: { type: "daysBefore", days: 3, label: "Call 3 working days before, reportedly between 2 PM and 5 PM Korea time." },
+    release: { type: "daysBefore", days: 3, label: "Call 3 working days before, reportedly between 2 PM and 5 PM Korea time.", lead: "Call three working days before your meal." },
     confidence: "Phone timing comes from Korean travel/community listings; treat it as tactical guidance.",
     map: [160, 155]
   },
@@ -40,7 +40,7 @@ const restaurants = [
     signature: "Scallops, gnocchi, lamb, natural wine",
     reservationUrl: "https://www.catchtable.net/shop/deepin",
     platform: "CatchTable",
-    release: { type: "watch", label: "Book ahead on CatchTable; exact release window not published in accessible sources." },
+    release: { type: "watch", days: 30, label: "Book ahead on CatchTable; exact release window not published in accessible sources.", lead: "Start checking 30 days before arrival and turn on alerts." },
     confidence: "Reservation link and hours were sourced from Visit Korea / CatchTable guide.",
     map: [222, 195]
   },
@@ -55,7 +55,7 @@ const restaurants = [
     signature: "Seasonal handmade pasta with Korean-Italian inflection",
     reservationUrl: "https://www.catchtable.net/search?keyword=Via%20Toledo%20Pasta%20Bar",
     platform: "CatchTable",
-    release: { type: "watch", label: "Use CatchTable alerts. Public sources confirm extreme demand but not a stable release rule." },
+    release: { type: "watch", days: 45, label: "Use CatchTable alerts. Public sources confirm extreme demand but not a stable release rule.", lead: "Set alerts 45 days before arrival; check cancellations daily." },
     confidence: "Demand spike is well documented; release timing should be verified on CatchTable.",
     map: [288, 118]
   },
@@ -70,7 +70,7 @@ const restaurants = [
     signature: "Seasonal tasting menu",
     reservationUrl: "https://www.catchtable.net/shop/trid",
     platform: "CatchTable",
-    release: { type: "watch", label: "Reservation-only via CatchTable. Check early and monitor cancellations." },
+    release: { type: "watch", days: 45, label: "Reservation-only via CatchTable. Check early and monitor cancellations.", lead: "Start checking 45 days before arrival; expect cancellation hunting." },
     confidence: "Official site confirms CatchTable-only booking and cancellation policy, but not release cadence.",
     map: [360, 36]
   },
@@ -85,7 +85,7 @@ const restaurants = [
     signature: "Lunch and dinner course menus, show-inspired dishes",
     reservationUrl: "https://www.catchtable.net/shop/choidot",
     platform: "CatchTable",
-    release: { type: "watch", label: "Reserve through CatchTable. Accessible sources recommend booking well ahead." },
+    release: { type: "watch", days: 30, label: "Reserve through CatchTable. Accessible sources recommend booking well ahead.", lead: "Check 30 days before arrival and again one week before." },
     confidence: "Booking link and menu pricing sourced from Visit Korea / CatchTable guide.",
     map: [432, 132]
   },
@@ -100,7 +100,7 @@ const restaurants = [
     signature: "Minari gomtang, beef tartare bibimbap",
     reservationUrl: "https://www.catchtable.net/search?keyword=%EB%8A%A5%EB%8F%99%EB%AF%B8%EB%82%98%EB%A6%AC",
     platform: "Walk-in / CatchTable waitlist check",
-    release: { type: "walkin", label: "Plan for queues; check CatchTable or local waitlist before arrival." },
+    release: { type: "walkin", label: "Plan for queues; check CatchTable or local waitlist before arrival.", lead: "No dependable advance booking. Go early or outside peak meal times." },
     confidence: "Viral/Bib Gourmand status sourced from current travel and Michelin-related listings.",
     map: [510, 86]
   },
@@ -115,7 +115,7 @@ const restaurants = [
     signature: "Dinner tasting menu",
     reservationUrl: "https://mosuseoul.com",
     platform: "Official site / CatchTable visibility",
-    release: { type: "watch", label: "Monitor official booking drops. A 2025 release sold roughly three months of seats in one day." },
+    release: { type: "watch", days: 90, label: "Monitor official booking drops. A 2025 release sold roughly three months of seats in one day.", lead: "Start monitoring 90 days before arrival; book immediately when seats drop." },
     confidence: "Korea JoongAng Daily reported 2025 CatchTable visibility and dinner pricing; current cadence may shift.",
     map: [586, 44]
   },
@@ -130,7 +130,7 @@ const restaurants = [
     signature: "Modern Korean tasting menu",
     reservationUrl: "https://www.mingles.kr",
     platform: "Official site / booking inquiry",
-    release: { type: "monthBefore", label: "Historical diner reports indicate month-ahead releases; verify on the official site." },
+    release: { type: "monthBefore", label: "Historical diner reports indicate month-ahead releases; verify on the official site.", lead: "Check from the first day of the month before your trip." },
     confidence: "Accolades are current via 50 Best; release timing is lower-confidence and should be checked.",
     map: [640, 108]
   },
@@ -145,7 +145,7 @@ const restaurants = [
     signature: "Research-led Korean heritage tasting menu",
     reservationUrl: "https://www.catchtable.net/search?keyword=Onjium",
     platform: "CatchTable / official channels",
-    release: { type: "watch", label: "Reservations essential. Exact public release window not found in accessible sources." },
+    release: { type: "watch", days: 45, label: "Reservations essential. Exact public release window not found in accessible sources.", lead: "Start checking 45 days before arrival; keep backup dates flexible." },
     confidence: "Hours and concept sourced from Seoul tourism and Asia's 50 Best.",
     map: [686, 62]
   },
@@ -160,7 +160,7 @@ const restaurants = [
     signature: "Five- or seven-course Hansik tasting menu",
     reservationUrl: "https://www.opentable.com/r/shia-restaurant-washington",
     platform: "OpenTable",
-    release: { type: "daysBefore", days: 60, label: "Reservations release 60 days in advance at 5 PM Eastern." },
+    release: { type: "daysBefore", days: 60, label: "Reservations release 60 days in advance at 5 PM Eastern.", lead: "Book exactly 60 days before your meal at 5 PM Eastern." },
     confidence: "Exact release window comes from SHIA's official FAQ.",
     map: [88, 250]
   }
@@ -219,7 +219,6 @@ const mediaByName = {
 };
 
 const grid = document.querySelector("#restaurantGrid");
-const timeline = document.querySelector("#timeline");
 const form = document.querySelector("#tripForm");
 const cityInput = document.querySelector("#cityInput");
 const arrivalInput = document.querySelector("#arrivalInput");
@@ -277,7 +276,6 @@ function render() {
   routeSummary.textContent = `${formatDate(trip.arrival)} to ${formatDate(trip.departure)}. ${buildRouteSummary(selected)}`;
 
   renderPins(selected);
-  renderTimeline(selected);
   renderCards(selected);
 }
 
@@ -333,9 +331,12 @@ function renderRestaurantCard(restaurant) {
       <p><strong>Order for:</strong> ${restaurant.signature}</p>
       <p><strong>Address:</strong> ${restaurant.address}</p>
       <div class="booking-box">
+        <div class="booking-guidance ${status.urgent ? "is-urgent" : ""}">
+          <strong>When to book: ${status.headline}</strong>
+          <span>${status.copy}</span>
+        </div>
         <div class="booking-meta">
           <span><strong>Book via:</strong> ${restaurant.platform}</span>
-          <span><strong>Timing:</strong> ${status.copy}</span>
         </div>
         <a class="booking-link" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">Reserve at ${reservationHost}</a>
         <a class="raw-link" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">${restaurant.reservationUrl}</a>
@@ -343,20 +344,6 @@ function renderRestaurantCard(restaurant) {
       </div>
     </article>
   `;
-}
-
-function renderTimeline(selected) {
-  const sorted = [...selected].sort((a, b) => getBookingStatus(a).sortDate - getBookingStatus(b).sortDate);
-  timeline.innerHTML = sorted.slice(0, 8).map((restaurant) => {
-    const status = getBookingStatus(restaurant);
-    return `
-      <article class="timeline-item ${status.urgent ? "is-urgent" : ""}">
-        <strong>${restaurant.name}</strong>
-        <span>${status.headline}</span>
-        <span>${status.copy}</span>
-      </article>
-    `;
-  }).join("");
 }
 
 function renderPins(selected) {
@@ -381,8 +368,8 @@ function getBookingStatus(restaurant) {
     return {
       sortDate: releaseDate,
       urgent: days <= 7,
-      headline: `${formatDate(releaseDate)} booking target`,
-      copy: `${release.label} For your arrival date, set an alert for ${formatDate(releaseDate)}.`
+      headline: formatDate(releaseDate),
+      copy: `${release.lead || release.label} For your ${formatDate(arrival)} arrival, set the alert for ${formatDate(releaseDate)}. ${release.label}`
     };
   }
 
@@ -394,8 +381,8 @@ function getBookingStatus(restaurant) {
     return {
       sortDate: releaseDate,
       urgent: days <= 7,
-      headline: `${formatDate(releaseDate)} watch date`,
-      copy: `${release.label} Start checking around ${formatDate(releaseDate)}.`
+      headline: formatDate(releaseDate),
+      copy: `${release.lead || release.label} For your ${formatDate(arrival)} arrival, begin around ${formatDate(releaseDate)}. ${release.label}`
     };
   }
 
@@ -403,16 +390,18 @@ function getBookingStatus(restaurant) {
     return {
       sortDate: arrival,
       urgent: true,
-      headline: "Plan around opening hours",
-      copy: release.label
+      headline: "During your trip",
+      copy: `${release.lead || "Plan around opening hours."} ${release.label}`
     };
   }
 
+  const daysBefore = release.days || 30;
+  const releaseDate = addDays(arrival, -daysBefore);
   return {
-    sortDate: addDays(arrival, -30),
-    urgent: differenceInDays(addDays(arrival, -30), today) <= 7,
-    headline: "Add to reservation watchlist",
-    copy: release.label
+    sortDate: releaseDate,
+    urgent: differenceInDays(releaseDate, today) <= 7,
+    headline: formatDate(releaseDate),
+    copy: `${release.lead || `Start checking ${daysBefore} days before arrival.`} For your ${formatDate(arrival)} arrival, begin around ${formatDate(releaseDate)}. ${release.label}`
   };
 }
 
