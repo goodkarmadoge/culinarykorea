@@ -166,6 +166,58 @@ const restaurants = [
   }
 ];
 
+const mediaByName = {
+  "Andongjip Son Kalguksi": {
+    image: "https://ajfxrnatbinyjjcsbhfs.supabase.co/storage/v1/object/public/restaurant-images/restaurants/andongjip-son-kalguksi.jpg",
+    credit: "EatingSeoul"
+  },
+  "Happy Drinking Table": {
+    image: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/kit-9-2.jpg",
+    chefImage: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/c-kim.png",
+    credit: "Seoul Metropolitan Government / CatchTable"
+  },
+  "Deepin": {
+    image: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/kit-3-2.jpg",
+    chefImage: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/c-yoon.png",
+    credit: "Seoul Metropolitan Government / CatchTable"
+  },
+  "Via Toledo Pasta Bar": {
+    image: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/kit-1-2.jpg",
+    chefImage: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/c-gwon.png",
+    credit: "Seoul Metropolitan Government / CatchTable"
+  },
+  "Trid": {
+    image: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/kit-2-2.jpg",
+    chefImage: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/c-kang.png",
+    credit: "Seoul Metropolitan Government / CatchTable"
+  },
+  "CHOI.": {
+    image: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/kit-12-2.jpg",
+    chefImage: "https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/c-choi.png",
+    credit: "Seoul Metropolitan Government / CatchTable"
+  },
+  "Neungdong Minari": {
+    image: "https://koreaeats.soundedfun.dev/photos/neungdongminari/3.webp",
+    credit: "KoreaEats"
+  },
+  "Mosu": {
+    image: "https://www.theworlds50best.com/discovery/filestore/jpg/Mosu-Seoul-South%20Korea-1.jpg",
+    credit: "50 Best Discovery"
+  },
+  "Mingles": {
+    image: "https://www.theworlds50best.com/discovery/filestore/jpg/Mingles-Seoul-Korea-fb.jpg",
+    credit: "50 Best Discovery"
+  },
+  "Onjium": {
+    image: "https://www.theworlds50best.com/discovery/filestore/jpg/onjium-seoul-fb.jpg",
+    credit: "50 Best Discovery"
+  },
+  "SHIA": {
+    image: "https://shiarestaurant.org/wp-content/uploads/2025/10/header-about-1.jpg",
+    credit: "SHIA"
+  }
+};
+
 const grid = document.querySelector("#restaurantGrid");
 const timeline = document.querySelector("#timeline");
 const form = document.querySelector("#tripForm");
@@ -258,8 +310,18 @@ function renderCards(selected) {
 
 function renderRestaurantCard(restaurant) {
   const status = getBookingStatus(restaurant);
+  const media = mediaByName[restaurant.name] || {};
+  const reservationHost = getReservationHost(restaurant.reservationUrl);
+  const chefPortrait = media.chefImage ? `
+    <img class="chef-portrait" src="${media.chefImage}" alt="${restaurant.chef}" loading="lazy" onerror="this.remove()">
+  ` : "";
   return `
     <article class="restaurant-card">
+      <a class="media-frame" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer" aria-label="Open reservation link for ${restaurant.name}">
+        ${media.image ? `<img src="${media.image}" alt="${restaurant.name}" loading="lazy" onerror="this.closest('.media-frame').classList.add('image-failed'); this.remove()">` : ""}
+        ${chefPortrait}
+        <span class="media-credit">${media.credit || "Restaurant photo"}</span>
+      </a>
       <div class="card-topline">
         <span class="price">${restaurant.price}</span>
         <span class="city-pill">${restaurant.city}</span>
@@ -275,7 +337,8 @@ function renderRestaurantCard(restaurant) {
           <span><strong>Book via:</strong> ${restaurant.platform}</span>
           <span><strong>Timing:</strong> ${status.copy}</span>
         </div>
-        <a class="booking-link" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">Reservation link</a>
+        <a class="booking-link" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">Reserve at ${reservationHost}</a>
+        <a class="raw-link" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">${restaurant.reservationUrl}</a>
         <span class="confidence">${restaurant.confidence}</span>
       </div>
     </article>
@@ -391,6 +454,15 @@ function toInputDate(date) {
 
 function formatDate(date) {
   return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(date);
+}
+
+function getReservationHost(url) {
+  if (url.startsWith("tel:")) return "phone";
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "booking link";
+  }
 }
 
 render();
