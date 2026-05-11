@@ -12,6 +12,7 @@ const restaurants = [
     platform: "Walk-in / phone check",
     release: { type: "walkin", label: "No reliable online booking window found. Plan an opening-time visit.", lead: "Go at opening during your trip." },
     confidence: "Current guides conflict on Sunday hours, so verify day-of before crossing town.",
+    coordinates: [37.5787, 127.0396],
     map: [88, 250]
   },
   {
@@ -27,6 +28,7 @@ const restaurants = [
     platform: "Phone only",
     release: { type: "daysBefore", days: 3, label: "Call 3 working days before, reportedly between 2 PM and 5 PM Korea time.", lead: "Call three working days before your meal." },
     confidence: "Phone timing comes from Korean travel/community listings; treat it as tactical guidance.",
+    coordinates: [37.6541, 127.0372],
     map: [160, 155]
   },
   {
@@ -42,6 +44,7 @@ const restaurants = [
     platform: "CatchTable",
     release: { type: "watch", days: 30, label: "Book ahead on CatchTable; exact release window not published in accessible sources.", lead: "Start checking 30 days before arrival and turn on alerts." },
     confidence: "Reservation link and hours were sourced from Visit Korea / CatchTable guide.",
+    coordinates: [37.5652, 127.0186],
     map: [222, 195]
   },
   {
@@ -57,6 +60,7 @@ const restaurants = [
     platform: "CatchTable",
     release: { type: "watch", days: 45, label: "Use CatchTable alerts. Public sources confirm extreme demand but not a stable release rule.", lead: "Set alerts 45 days before arrival; check cancellations daily." },
     confidence: "Demand spike is well documented; release timing should be verified on CatchTable.",
+    coordinates: [37.5388, 126.9645],
     map: [288, 118]
   },
   {
@@ -72,6 +76,7 @@ const restaurants = [
     platform: "CatchTable",
     release: { type: "watch", days: 45, label: "Reservation-only via CatchTable. Check early and monitor cancellations.", lead: "Start checking 45 days before arrival; expect cancellation hunting." },
     confidence: "Official site confirms CatchTable-only booking and cancellation policy, but not release cadence.",
+    coordinates: [37.5258, 127.0397],
     map: [360, 36]
   },
   {
@@ -87,6 +92,7 @@ const restaurants = [
     platform: "CatchTable",
     release: { type: "watch", days: 30, label: "Reserve through CatchTable. Accessible sources recommend booking well ahead.", lead: "Check 30 days before arrival and again one week before." },
     confidence: "Booking link and menu pricing sourced from Visit Korea / CatchTable guide.",
+    coordinates: [37.5237, 127.0445],
     map: [432, 132]
   },
   {
@@ -102,6 +108,7 @@ const restaurants = [
     platform: "Walk-in / CatchTable waitlist check",
     release: { type: "walkin", label: "Plan for queues; check CatchTable or local waitlist before arrival.", lead: "No dependable advance booking. Go early or outside peak meal times." },
     confidence: "Viral/Bib Gourmand status sourced from current travel and Michelin-related listings.",
+    coordinates: [37.5304, 126.9688],
     map: [510, 86]
   },
   {
@@ -117,6 +124,7 @@ const restaurants = [
     platform: "Official site / CatchTable visibility",
     release: { type: "watch", days: 90, label: "Monitor official booking drops. A 2025 release sold roughly three months of seats in one day.", lead: "Start monitoring 90 days before arrival; book immediately when seats drop." },
     confidence: "Korea JoongAng Daily reported 2025 CatchTable visibility and dinner pricing; current cadence may shift.",
+    coordinates: [37.5399, 126.9965],
     map: [586, 44]
   },
   {
@@ -132,6 +140,7 @@ const restaurants = [
     platform: "Official site / booking inquiry",
     release: { type: "monthBefore", label: "Historical diner reports indicate month-ahead releases; verify on the official site.", lead: "Check from the first day of the month before your trip." },
     confidence: "Accolades are current via 50 Best; release timing is lower-confidence and should be checked.",
+    coordinates: [37.5253, 127.0441],
     map: [640, 108]
   },
   {
@@ -147,6 +156,7 @@ const restaurants = [
     platform: "CatchTable / official channels",
     release: { type: "watch", days: 45, label: "Reservations essential. Exact public release window not found in accessible sources.", lead: "Start checking 45 days before arrival; keep backup dates flexible." },
     confidence: "Hours and concept sourced from Seoul tourism and Asia's 50 Best.",
+    coordinates: [37.5806, 126.9732],
     map: [686, 62]
   },
   {
@@ -162,6 +172,7 @@ const restaurants = [
     platform: "OpenTable",
     release: { type: "daysBefore", days: 60, label: "Reservations release 60 days in advance at 5 PM Eastern.", lead: "Book exactly 60 days before your meal at 5 PM Eastern." },
     confidence: "Exact release window comes from SHIA's official FAQ.",
+    coordinates: [38.9074, -76.9992],
     map: [88, 250]
   }
 ];
@@ -228,8 +239,10 @@ const urgentCount = document.querySelector("#urgentCount");
 const fineCount = document.querySelector("#fineCount");
 const routeTitle = document.querySelector("#routeTitle");
 const routeSummary = document.querySelector("#routeSummary");
-const mapPins = document.querySelector("#mapPins");
+const mapLinks = document.querySelector("#mapLinks");
 const filterButtons = [...document.querySelectorAll(".filter-button")];
+let restaurantMap;
+let markerLayer;
 
 const today = new Date();
 let activeFilter = "all";
@@ -275,7 +288,7 @@ function render() {
   routeTitle.textContent = trip.city === "All" ? "Cross-city tasting route" : `${trip.city} food route`;
   routeSummary.textContent = `${formatDate(trip.arrival)} to ${formatDate(trip.departure)}. ${buildRouteSummary(selected)}`;
 
-  renderPins(selected);
+  renderInteractiveMap(selected);
   renderCards(selected);
 }
 
@@ -314,7 +327,7 @@ function renderRestaurantCard(restaurant) {
     <img class="chef-portrait" src="${media.chefImage}" alt="${restaurant.chef}" loading="lazy" onerror="this.remove()">
   ` : "";
   return `
-    <article class="restaurant-card">
+    <article class="restaurant-card" id="${getRestaurantId(restaurant)}">
       <a class="media-frame" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer" aria-label="Open reservation link for ${restaurant.name}">
         ${media.image ? `<img src="${media.image}" alt="${restaurant.name}" loading="lazy" onerror="this.closest('.media-frame').classList.add('image-failed'); this.remove()">` : ""}
         ${chefPortrait}
@@ -346,16 +359,92 @@ function renderRestaurantCard(restaurant) {
   `;
 }
 
-function renderPins(selected) {
-  mapPins.innerHTML = selected.slice(0, 10).map((restaurant, index) => {
-    const [x, y] = restaurant.map;
-    return `
-      <g class="pin" transform="translate(${x} ${y})">
-        <circle r="18"></circle>
-        <text y="1">${index + 1}</text>
-      </g>
-    `;
-  }).join("");
+function renderInteractiveMap(selected) {
+  const mappedRestaurants = selected.filter((restaurant) => restaurant.coordinates);
+  renderMapLinks(mappedRestaurants);
+
+  if (!window.L) {
+    document.querySelector("#restaurantMap").innerHTML = "<div class='map-fallback'>Map loading is unavailable. Use the numbered restaurant links.</div>";
+    return;
+  }
+
+  if (!restaurantMap) {
+    restaurantMap = L.map("restaurantMap", {
+      scrollWheelZoom: false,
+      zoomControl: true
+    });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(restaurantMap);
+
+    markerLayer = L.layerGroup().addTo(restaurantMap);
+  }
+
+  markerLayer.clearLayers();
+
+  if (!mappedRestaurants.length) {
+    restaurantMap.setView([37.5665, 126.9780], 11);
+    return;
+  }
+
+  const bounds = [];
+  mappedRestaurants.forEach((restaurant, index) => {
+    const marker = L.marker(restaurant.coordinates, {
+      icon: L.divIcon({
+        className: "numbered-map-marker",
+        html: `<span>${index + 1}</span>`,
+        iconSize: [34, 34],
+        iconAnchor: [17, 17],
+        popupAnchor: [0, -18]
+      })
+    });
+    marker.bindPopup(renderMapPopup(restaurant, index));
+    marker.addTo(markerLayer);
+    bounds.push(restaurant.coordinates);
+  });
+
+  if (bounds.length === 1) {
+    restaurantMap.setView(bounds[0], 13);
+  } else {
+    restaurantMap.fitBounds(bounds, { padding: [32, 32], maxZoom: 12 });
+  }
+}
+
+function renderMapLinks(mappedRestaurants) {
+  mapLinks.innerHTML = mappedRestaurants.map((restaurant, index) => `
+    <a href="#${getRestaurantId(restaurant)}" data-map-index="${index}">
+      <span>${index + 1}</span>
+      <strong>${restaurant.name}</strong>
+    </a>
+  `).join("");
+
+  [...mapLinks.querySelectorAll("a")].forEach((link) => {
+    link.addEventListener("click", () => {
+      const index = Number(link.dataset.mapIndex);
+      const restaurant = mappedRestaurants[index];
+      if (restaurantMap && restaurant) {
+        restaurantMap.setView(restaurant.coordinates, 15);
+        const marker = markerLayer.getLayers()[index];
+        if (marker) marker.openPopup();
+      }
+    });
+  });
+}
+
+function renderMapPopup(restaurant, index) {
+  const cardId = getRestaurantId(restaurant);
+  const mapsUrl = getMapUrl(restaurant);
+  return `
+    <div class="map-popup">
+      <strong>${index + 1}. ${restaurant.name}</strong>
+      <span>${restaurant.price} · ${restaurant.chef}</span>
+      <a href="#${cardId}">View card</a>
+      <a href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">Reserve</a>
+      <a href="${mapsUrl}" target="_blank" rel="noreferrer">Open map</a>
+    </div>
+  `;
 }
 
 function getBookingStatus(restaurant) {
@@ -452,6 +541,14 @@ function getReservationHost(url) {
   } catch {
     return "booking link";
   }
+}
+
+function getRestaurantId(restaurant) {
+  return `restaurant-${restaurant.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+}
+
+function getMapUrl(restaurant) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${restaurant.name} ${restaurant.address || restaurant.city}`)}`;
 }
 
 render();

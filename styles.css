@@ -207,51 +207,72 @@ h3 {
 .map-card {
   display: grid;
   grid-template-columns: 1.45fr 0.75fr;
-  min-height: 300px;
+  min-height: 420px;
   overflow: hidden;
   border-radius: 8px;
 }
 
 .route-map {
-  min-height: 300px;
-  background:
-    radial-gradient(circle at 18% 22%, rgba(195, 146, 46, 0.18), transparent 24%),
-    radial-gradient(circle at 82% 38%, rgba(60, 111, 135, 0.16), transparent 26%),
-    #eef0e7;
+  min-height: 420px;
+  background: #eef0e7;
 }
 
-.route-map svg {
+#restaurantMap {
   width: 100%;
   height: 100%;
+  min-height: 420px;
+  z-index: 1;
 }
 
-.river {
-  fill: none;
-  stroke: rgba(60, 111, 135, 0.35);
-  stroke-width: 42;
-  stroke-linecap: round;
-}
-
-.route {
-  fill: none;
-  stroke: var(--clay);
-  stroke-width: 5;
-  stroke-linecap: round;
-  stroke-dasharray: 12 13;
-}
-
-.pin circle {
-  fill: var(--panel);
-  stroke: var(--moss);
-  stroke-width: 4;
-}
-
-.pin text {
-  fill: var(--ink);
-  font-size: 17px;
+.numbered-map-marker {
+  display: grid;
+  place-items: center;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: var(--clay);
+  box-shadow: 0 8px 20px rgba(32, 32, 29, 0.25);
+  color: white;
   font-weight: 900;
-  text-anchor: middle;
-  dominant-baseline: middle;
+}
+
+.numbered-map-marker span {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.map-popup {
+  display: grid;
+  gap: 5px;
+  min-width: 180px;
+}
+
+.map-popup strong,
+.map-popup span,
+.map-popup a {
+  display: block;
+}
+
+.map-popup span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.map-popup a {
+  color: var(--blue);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.map-fallback {
+  display: grid;
+  place-items: center;
+  min-height: 420px;
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
 }
 
 .map-copy {
@@ -262,9 +283,66 @@ h3 {
   border-left: 1px solid var(--line);
 }
 
-.map-copy p:last-child {
+.map-copy p {
   color: var(--muted);
   line-height: 1.55;
+}
+
+.map-link-panel {
+  display: grid;
+  gap: 8px;
+  margin: 8px 0 10px;
+}
+
+.map-link-title {
+  margin-bottom: 0;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.map-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.map-links a {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.map-links a:hover {
+  border-color: var(--clay);
+}
+
+.map-links span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--moss);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.map-links strong {
+  overflow: hidden;
+  font-size: 0.78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .show-portrait {

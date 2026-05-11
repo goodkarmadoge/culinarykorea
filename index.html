@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Culinary Trip Mapper</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -60,17 +61,17 @@
 
       <section class="map-panel" aria-label="Restaurant map and itinerary">
         <div class="map-card">
-          <div class="route-map" aria-hidden="true">
-            <svg viewBox="0 0 760 360" role="img">
-              <path class="river" d="M-20 225 C110 185 185 250 300 218 C430 180 490 124 610 155 C690 176 720 210 790 178"></path>
-              <path class="route" d="M88 250 C160 155 222 195 288 118 C360 36 432 132 510 86 C586 44 640 108 686 62"></path>
-              <g id="mapPins"></g>
-            </svg>
+          <div class="route-map">
+            <div id="restaurantMap" aria-label="Interactive restaurant map"></div>
           </div>
           <div class="map-copy">
             <p class="eyebrow">Reservation strategy</p>
             <h2 id="routeTitle">Seoul food route</h2>
             <p id="routeSummary">Enter your dates to see booking reminders and a tighter shortlist.</p>
+            <div class="map-link-panel">
+              <p class="map-link-title">Mapped stops</p>
+              <div class="map-links" id="mapLinks" aria-label="Numbered restaurant links"></div>
+            </div>
             <div class="show-portrait" aria-label="Culinary Class Wars chefs featured in this guide">
               <img src="https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/c-gwon.png" alt="Kwon Sung-jun from Culinary Class Wars">
               <img src="https://english.seoul.go.kr/wp-content/themes/seoul-e/assets/images/food/c-kang.png" alt="Kang Seung-won from Culinary Class Wars">
@@ -101,6 +102,7 @@
       </details>
     </aside>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
