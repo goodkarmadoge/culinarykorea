@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Culinary Trip Mapper</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="planner-panel" aria-labelledby="app-title">
+        <div class="title-block">
+          <p class="eyebrow">Food-led travel planner</p>
+          <h1 id="app-title">Culinary Trip Mapper</h1>
+          <p class="lede">Build a restaurant route around Culinary Class Wars, social-media heat, and destination fine dining.</p>
+        </div>
+
+        <form class="trip-form" id="tripForm">
+          <label>
+            <span>City</span>
+            <select id="cityInput">
+              <option value="Seoul">Seoul</option>
+              <option value="Washington, D.C.">Washington, D.C.</option>
+              <option value="All">All cities</option>
+            </select>
+          </label>
+          <label>
+            <span>Arrival</span>
+            <input id="arrivalInput" type="date">
+          </label>
+          <label>
+            <span>Departure</span>
+            <input id="departureInput" type="date">
+          </label>
+          <button type="submit">Map my meals</button>
+        </form>
+
+        <div class="quick-stats" aria-label="Trip summary">
+          <article>
+            <strong id="visibleCount">0</strong>
+            <span>matches</span>
+          </article>
+          <article>
+            <strong id="urgentCount">0</strong>
+            <span>booking alerts</span>
+          </article>
+          <article>
+            <strong id="fineCount">0</strong>
+            <span>fine dining</span>
+          </article>
+        </div>
+
+        <div class="filters" aria-label="Recommendation filters">
+          <button class="filter-button active" data-filter="all" type="button">All</button>
+          <button class="filter-button" data-filter="Culinary Class Wars" type="button">Culinary Class Wars</button>
+          <button class="filter-button" data-filter="Social Heat" type="button">Social heat</button>
+          <button class="filter-button" data-filter="Fine Dining" type="button">Fine dining</button>
+        </div>
+      </section>
+
+      <section class="map-panel" aria-label="Restaurant map and itinerary">
+        <div class="map-card">
+          <div class="route-map" aria-hidden="true">
+            <svg viewBox="0 0 760 360" role="img">
+              <path class="river" d="M-20 225 C110 185 185 250 300 218 C430 180 490 124 610 155 C690 176 720 210 790 178"></path>
+              <path class="route" d="M88 250 C160 155 222 195 288 118 C360 36 432 132 510 86 C586 44 640 108 686 62"></path>
+              <g id="mapPins"></g>
+            </svg>
+          </div>
+          <div class="map-copy">
+            <p class="eyebrow">Reservation strategy</p>
+            <h2 id="routeTitle">Seoul food route</h2>
+            <p id="routeSummary">Enter your dates to see booking reminders and a tighter shortlist.</p>
+          </div>
+        </div>
+
+        <div class="timeline" id="timeline" aria-label="Reservation timeline"></div>
+        <div class="restaurant-grid" id="restaurantGrid"></div>
+      </section>
+    </main>
+
+    <aside class="source-panel">
+      <details>
+        <summary>Sources and confidence notes</summary>
+        <p>Reservation windows change often. Exact release windows are shown only where a source stated them; otherwise the card uses a watchlist recommendation and links to the booking surface.</p>
+        <ul>
+          <li><a href="https://cnalifestyle.channelnewsasia.com/dining/culinary-class-wars-cast-restaurants-411571">CNA Culinary Class Wars restaurant guide</a></li>
+          <li><a href="https://english.visitkorea.or.kr/svc/contents/contentsView.do?menuSn=219&page=2&sContsTtl=&sort=regDt&vcontsId=214935">Visit Korea / CatchTable Culinary Class Wars guide</a></li>
+          <li><a href="https://tridseoul.com/about-en">Trid official reservation policy</a></li>
+          <li><a href="https://shiarestaurant.org/shia-faq/">SHIA reservation FAQ</a></li>
+          <li><a href="https://koreajoongangdaily.joins.com/news/2025-03-04/culture/foodTravel/Dinner-slots-for-Chef-Anh-Sungjaes-restaurant-Mosu-appear-on-CatchTable/2254266">Korea JoongAng Daily on Mosu reservations</a></li>
+          <li><a href="https://www.theworlds50best.com/asia/en/the-list/Mosu.html">Asia's 50 Best: Mosu</a></li>
+          <li><a href="https://www.theworlds50best.com/discovery/Establishments/South-Korea/Seoul/Mingles.html">50 Best Discovery: Mingles</a></li>
+          <li><a href="https://www.theworlds50best.com/asia/en/the-list/onjium.html">Asia's 50 Best: Onjium</a></li>
+        </ul>
+      </details>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
