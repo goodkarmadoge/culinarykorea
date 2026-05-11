@@ -4,13 +4,14 @@ const restaurants = [
     city: "Seoul",
     price: "$",
     chef: "Lee Mi-ryeong, Auntie Omakase #1",
+    showChef: "Celebrity Chef: Lee Mi-ryeong, known on Culinary Class Wars as Auntie Omakase #1.",
     categories: ["Culinary Class Wars", "Social Heat"],
     address: "B1, 3 Gosanja-ro 36-gil, Dongdaemun-gu, Seoul",
     story: "A market noodle shop tied to one of the show's most emotional arcs: rebuilding through kalguksu after family hardship.",
     signature: "Hand-cut kalguksu, cabbage pancakes, boiled pork",
     reservationUrl: "https://english.visitseoul.net/restaurants/andongjip-sonkalguksi/ENP32dncy",
     platform: "Walk-in / phone check",
-    release: { type: "walkin", label: "No reliable online booking window found. Plan an opening-time visit.", lead: "Go at opening during your trip." },
+    release: { type: "walkin", urgency: "green", label: "No reliable online booking window found. Plan an opening-time visit.", lead: "Go at opening during your trip." },
     confidence: "Current guides conflict on Sunday hours, so verify day-of before crossing town.",
     coordinates: [37.5787, 127.0396],
     map: [88, 250]
@@ -20,13 +21,14 @@ const restaurants = [
     city: "Seoul",
     price: "$$",
     chef: "Lee Mi-ryeong, Auntie Omakase #1",
+    showChef: "Celebrity Chef: Lee Mi-ryeong, known on Culinary Class Wars as Auntie Omakase #1.",
     categories: ["Culinary Class Wars"],
     address: "341 Nohae-ro, Dobong-gu, Seoul",
     story: "The intimate omakase-style sibling to Auntie Omakase's humble noodle shop, built around seasonal Korean drinking food.",
     signature: "Korean omakase drinking table",
     reservationUrl: "tel:+821075392020",
     platform: "Phone only",
-    release: { type: "daysBefore", days: 3, label: "Call 3 working days before, reportedly between 2 PM and 5 PM Korea time.", lead: "Call three working days before your meal." },
+    release: { type: "daysBefore", days: 3, urgency: "red", label: "Call 3 working days before, reportedly between 2 PM and 5 PM Korea time.", lead: "Call three working days before your meal." },
     confidence: "Phone timing comes from Korean travel/community listings; treat it as tactical guidance.",
     coordinates: [37.6541, 127.0372],
     map: [160, 155]
@@ -36,13 +38,14 @@ const restaurants = [
     city: "Seoul",
     price: "$$",
     chef: "Yoon Nam-no, Cooking Maniac",
+    showChef: "Celebrity Chef: Yoon Nam-no, known on Culinary Class Wars as Cooking Maniac.",
     categories: ["Culinary Class Wars", "Social Heat"],
     address: "1F, 411 Toegye-ro, Jung-gu, Seoul",
     story: "A natural wine bar from the show's fourth-place finalist, with relaxed energy and sharp bistro cooking.",
     signature: "Scallops, gnocchi, lamb, natural wine",
     reservationUrl: "https://www.catchtable.net/shop/deepin",
     platform: "CatchTable",
-    release: { type: "watch", days: 30, label: "Book ahead on CatchTable; exact release window not published in accessible sources.", lead: "Start checking 30 days before arrival and turn on alerts." },
+    release: { type: "watch", days: 30, urgency: "yellow", label: "Book ahead on CatchTable; exact release window not published in accessible sources.", lead: "Start checking 30 days before arrival and turn on alerts." },
     confidence: "Reservation link and hours were sourced from Visit Korea / CatchTable guide.",
     coordinates: [37.5652, 127.0186],
     map: [222, 195]
@@ -52,13 +55,14 @@ const restaurants = [
     city: "Seoul",
     price: "$$$",
     chef: "Kwon Sung-jun, Napoli Matfia",
+    showChef: "Celebrity Chef: Kwon Sung-jun, known on Culinary Class Wars as Napoli Matfia and the Season 1 winner.",
     categories: ["Culinary Class Wars", "Social Heat", "Fine Dining"],
     address: "7-2 Wonhyo-ro 83-gil, Yongsan-gu, Seoul",
     story: "The Season 1 winner's Italian counter became a post-finale phenomenon after fans overwhelmed reservation systems.",
     signature: "Seasonal handmade pasta with Korean-Italian inflection",
     reservationUrl: "https://www.catchtable.net/search?keyword=Via%20Toledo%20Pasta%20Bar",
     platform: "CatchTable",
-    release: { type: "watch", days: 45, label: "Use CatchTable alerts. Public sources confirm extreme demand but not a stable release rule.", lead: "Set alerts 45 days before arrival; check cancellations daily." },
+    release: { type: "watch", days: 45, urgency: "red", label: "Use CatchTable alerts. Public sources confirm extreme demand but not a stable release rule.", lead: "Set alerts 45 days before arrival; check cancellations daily." },
     confidence: "Demand spike is well documented; release timing should be verified on CatchTable.",
     coordinates: [37.5388, 126.9645],
     map: [288, 118]
@@ -68,13 +72,14 @@ const restaurants = [
     city: "Seoul",
     price: "$$$",
     chef: "Kang Seung-won, Triple Star",
+    showChef: "Celebrity Chef: Kang Seung-won, known on Culinary Class Wars as Triple Star.",
     categories: ["Culinary Class Wars", "Fine Dining"],
     address: "2F, 16 Seolleung-ro 162-gil, Gangnam-gu, Seoul",
     story: "Triple Star brings Mosu and Benu training into a seasonal Korean tasting menu with French technique.",
     signature: "Seasonal tasting menu",
     reservationUrl: "https://www.catchtable.net/shop/trid",
     platform: "CatchTable",
-    release: { type: "watch", days: 45, label: "Reservation-only via CatchTable. Check early and monitor cancellations.", lead: "Start checking 45 days before arrival; expect cancellation hunting." },
+    release: { type: "watch", days: 45, urgency: "red", label: "Reservation-only via CatchTable. Check early and monitor cancellations.", lead: "Start checking 45 days before arrival; expect cancellation hunting." },
     confidence: "Official site confirms CatchTable-only booking and cancellation policy, but not release cadence.",
     coordinates: [37.5258, 127.0397],
     map: [360, 36]
@@ -84,13 +89,14 @@ const restaurants = [
     city: "Seoul",
     price: "$$$",
     chef: "Choi Hyun-seok",
+    showChef: "Celebrity Chef: Choi Hyun-seok, a White Spoon chef on Culinary Class Wars.",
     categories: ["Culinary Class Wars", "Fine Dining"],
     address: "3F, 457 Dosan-daero, Gangnam-gu, Seoul",
     story: "A polished way to taste the celebrity chef's creative, theatrical Korean-European style.",
     signature: "Lunch and dinner course menus, show-inspired dishes",
     reservationUrl: "https://www.catchtable.net/shop/choidot",
     platform: "CatchTable",
-    release: { type: "watch", days: 30, label: "Reserve through CatchTable. Accessible sources recommend booking well ahead.", lead: "Check 30 days before arrival and again one week before." },
+    release: { type: "watch", days: 30, urgency: "yellow", label: "Reserve through CatchTable. Accessible sources recommend booking well ahead.", lead: "Check 30 days before arrival and again one week before." },
     confidence: "Booking link and menu pricing sourced from Visit Korea / CatchTable guide.",
     coordinates: [37.5237, 127.0445],
     map: [432, 132]
@@ -106,7 +112,7 @@ const restaurants = [
     signature: "Minari gomtang, beef tartare bibimbap",
     reservationUrl: "https://www.catchtable.net/search?keyword=%EB%8A%A5%EB%8F%99%EB%AF%B8%EB%82%98%EB%A6%AC",
     platform: "Walk-in / CatchTable waitlist check",
-    release: { type: "walkin", label: "Plan for queues; check CatchTable or local waitlist before arrival.", lead: "No dependable advance booking. Go early or outside peak meal times." },
+    release: { type: "walkin", urgency: "green", label: "Plan for queues; check CatchTable or local waitlist before arrival.", lead: "No dependable advance booking. Go early or outside peak meal times." },
     confidence: "Viral/Bib Gourmand status sourced from current travel and Michelin-related listings.",
     coordinates: [37.5304, 126.9688],
     map: [510, 86]
@@ -116,13 +122,14 @@ const restaurants = [
     city: "Seoul",
     price: "$$$$",
     chef: "Sung Anh",
+    showChef: "Celebrity Chef: Sung Anh, a Culinary Class Wars judge.",
     categories: ["Culinary Class Wars", "Fine Dining"],
     address: "4 Hoenamu-ro 41-gil, Yongsan-gu, Seoul",
     story: "The judge's San Francisco-to-Seoul restaurant tells Korean memory through globally trained fine-dining technique.",
     signature: "Dinner tasting menu",
     reservationUrl: "https://mosuseoul.com",
     platform: "Official site / CatchTable visibility",
-    release: { type: "watch", days: 90, label: "Monitor official booking drops. A 2025 release sold roughly three months of seats in one day.", lead: "Start monitoring 90 days before arrival; book immediately when seats drop." },
+    release: { type: "watch", days: 90, urgency: "red", label: "Monitor official booking drops. A 2025 release sold roughly three months of seats in one day.", lead: "Start monitoring 90 days before arrival; book immediately when seats drop." },
     confidence: "Korea JoongAng Daily reported 2025 CatchTable visibility and dinner pricing; current cadence may shift.",
     coordinates: [37.5399, 126.9965],
     map: [586, 44]
@@ -138,7 +145,7 @@ const restaurants = [
     signature: "Modern Korean tasting menu",
     reservationUrl: "https://www.mingles.kr",
     platform: "Official site / booking inquiry",
-    release: { type: "monthBefore", label: "Historical diner reports indicate month-ahead releases; verify on the official site.", lead: "Check from the first day of the month before your trip." },
+    release: { type: "monthBefore", urgency: "yellow", label: "Historical diner reports indicate month-ahead releases; verify on the official site.", lead: "Check from the first day of the month before your trip." },
     confidence: "Accolades are current via 50 Best; release timing is lower-confidence and should be checked.",
     coordinates: [37.5253, 127.0441],
     map: [640, 108]
@@ -154,7 +161,7 @@ const restaurants = [
     signature: "Research-led Korean heritage tasting menu",
     reservationUrl: "https://www.catchtable.net/search?keyword=Onjium",
     platform: "CatchTable / official channels",
-    release: { type: "watch", days: 45, label: "Reservations essential. Exact public release window not found in accessible sources.", lead: "Start checking 45 days before arrival; keep backup dates flexible." },
+    release: { type: "watch", days: 45, urgency: "yellow", label: "Reservations essential. Exact public release window not found in accessible sources.", lead: "Start checking 45 days before arrival; keep backup dates flexible." },
     confidence: "Hours and concept sourced from Seoul tourism and Asia's 50 Best.",
     coordinates: [37.5806, 126.9732],
     map: [686, 62]
@@ -164,13 +171,14 @@ const restaurants = [
     city: "Washington, D.C.",
     price: "$$$$",
     chef: "Edward Lee",
+    showChef: "Celebrity Chef: Edward Lee, Culinary Class Wars runner-up.",
     categories: ["Culinary Class Wars", "Fine Dining", "Social Heat"],
     address: "1252 4th St NE, Washington, D.C.",
     story: "Edward Lee's nonprofit modern Korean restaurant treats fine dining as sustainability research and cultural storytelling.",
     signature: "Five- or seven-course Hansik tasting menu",
     reservationUrl: "https://www.opentable.com/r/shia-restaurant-washington",
     platform: "OpenTable",
-    release: { type: "daysBefore", days: 60, label: "Reservations release 60 days in advance at 5 PM Eastern.", lead: "Book exactly 60 days before your meal at 5 PM Eastern." },
+    release: { type: "daysBefore", days: 60, urgency: "red", label: "Reservations release 60 days in advance at 5 PM Eastern.", lead: "Book exactly 60 days before your meal at 5 PM Eastern." },
     confidence: "Exact release window comes from SHIA's official FAQ.",
     coordinates: [38.9074, -76.9992],
     map: [88, 250]
@@ -283,7 +291,7 @@ function render() {
 
   visibleCount.textContent = selected.length;
   fineCount.textContent = selected.filter((item) => item.categories.includes("Fine Dining")).length;
-  urgentCount.textContent = selected.filter((item) => getBookingStatus(item).urgent).length;
+  urgentCount.textContent = selected.filter((item) => getBookingStatus(item).level === "red").length;
 
   routeTitle.textContent = trip.city === "All" ? "Cross-city tasting route" : `${trip.city} food route`;
   routeSummary.textContent = `${formatDate(trip.arrival)} to ${formatDate(trip.departure)}. ${buildRouteSummary(selected)}`;
@@ -323,6 +331,7 @@ function renderRestaurantCard(restaurant) {
   const status = getBookingStatus(restaurant);
   const media = mediaByName[restaurant.name] || {};
   const reservationHost = getReservationHost(restaurant.reservationUrl);
+  const showChef = restaurant.showChef ? `<p class="show-chef"><strong>Culinary Class Wars:</strong> ${restaurant.showChef}</p>` : "";
   const chefPortrait = media.chefImage ? `
     <img class="chef-portrait" src="${media.chefImage}" alt="${restaurant.chef}" loading="lazy" onerror="this.remove()">
   ` : "";
@@ -339,13 +348,14 @@ function renderRestaurantCard(restaurant) {
       </div>
       <h3>${restaurant.name}</h3>
       <p><strong>Chef:</strong> ${restaurant.chef}</p>
+      ${showChef}
       <div class="tags">${restaurant.categories.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
       <p class="story">${restaurant.story}</p>
       <p><strong>Order for:</strong> ${restaurant.signature}</p>
       <p><strong>Address:</strong> ${restaurant.address}</p>
       <div class="booking-box">
-        <div class="booking-guidance ${status.urgent ? "is-urgent" : ""}">
-          <strong>When to book: ${status.headline}</strong>
+        <div class="booking-guidance urgency-${status.level}">
+          <strong><span class="urgency-badge">${status.label}</span> When to book: ${status.headline}</strong>
           <span>${status.copy}</span>
         </div>
         <div class="booking-meta">
@@ -439,7 +449,7 @@ function renderMapPopup(restaurant, index) {
   return `
     <div class="map-popup">
       <strong>${index + 1}. ${restaurant.name}</strong>
-      <span>${restaurant.price} · ${restaurant.chef}</span>
+      <span>${restaurant.price} - ${restaurant.chef}</span>
       <a href="#${cardId}">View card</a>
       <a href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">Reserve</a>
       <a href="${mapsUrl}" target="_blank" rel="noreferrer">Open map</a>
@@ -457,6 +467,8 @@ function getBookingStatus(restaurant) {
     return {
       sortDate: releaseDate,
       urgent: days <= 7,
+      level: getUrgencyLevel(release, days),
+      label: getUrgencyLabel(getUrgencyLevel(release, days)),
       headline: formatDate(releaseDate),
       copy: `${release.lead || release.label} For your ${formatDate(arrival)} arrival, set the alert for ${formatDate(releaseDate)}. ${release.label}`
     };
@@ -470,6 +482,8 @@ function getBookingStatus(restaurant) {
     return {
       sortDate: releaseDate,
       urgent: days <= 7,
+      level: getUrgencyLevel(release, days),
+      label: getUrgencyLabel(getUrgencyLevel(release, days)),
       headline: formatDate(releaseDate),
       copy: `${release.lead || release.label} For your ${formatDate(arrival)} arrival, begin around ${formatDate(releaseDate)}. ${release.label}`
     };
@@ -479,6 +493,8 @@ function getBookingStatus(restaurant) {
     return {
       sortDate: arrival,
       urgent: true,
+      level: getUrgencyLevel(release, 0),
+      label: getUrgencyLabel(getUrgencyLevel(release, 0)),
       headline: "During your trip",
       copy: `${release.lead || "Plan around opening hours."} ${release.label}`
     };
@@ -489,9 +505,24 @@ function getBookingStatus(restaurant) {
   return {
     sortDate: releaseDate,
     urgent: differenceInDays(releaseDate, today) <= 7,
+    level: getUrgencyLevel(release, differenceInDays(releaseDate, today)),
+    label: getUrgencyLabel(getUrgencyLevel(release, differenceInDays(releaseDate, today))),
     headline: formatDate(releaseDate),
     copy: `${release.lead || `Start checking ${daysBefore} days before arrival.`} For your ${formatDate(arrival)} arrival, begin around ${formatDate(releaseDate)}. ${release.label}`
   };
+}
+
+function getUrgencyLevel(release, daysUntilTarget) {
+  if (release.urgency) return release.urgency;
+  if (daysUntilTarget <= 7) return "red";
+  if (daysUntilTarget <= 45) return "yellow";
+  return "green";
+}
+
+function getUrgencyLabel(level) {
+  if (level === "red") return "Must book ASAP";
+  if (level === "yellow") return "Monitor";
+  return "Flexible";
 }
 
 function buildRouteSummary(selected) {

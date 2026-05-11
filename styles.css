@@ -505,6 +505,16 @@ h3 {
   line-height: 1.5;
 }
 
+.show-chef {
+  padding: 10px;
+  border: 1px solid rgba(180, 95, 67, 0.28);
+  border-radius: 6px;
+  background: rgba(180, 95, 67, 0.08);
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
 .booking-box {
   display: grid;
   gap: 8px;
@@ -522,8 +532,19 @@ h3 {
   background: #f7f3ea;
 }
 
-.booking-guidance.is-urgent {
-  border-left-color: var(--clay);
+.booking-guidance.urgency-green {
+  border-left-color: #55845f;
+  background: #eef7ef;
+}
+
+.booking-guidance.urgency-yellow {
+  border-left-color: #c3922e;
+  background: #fff7e3;
+}
+
+.booking-guidance.urgency-red {
+  border-left-color: #bd493d;
+  background: #fff0ee;
 }
 
 .booking-guidance strong,
@@ -532,6 +553,10 @@ h3 {
 }
 
 .booking-guidance strong {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   font-size: 0.9rem;
 }
 
@@ -539,6 +564,30 @@ h3 {
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.42;
+}
+
+.urgency-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.urgency-green .urgency-badge {
+  background: #55845f;
+}
+
+.urgency-yellow .urgency-badge {
+  background: #c3922e;
+}
+
+.urgency-red .urgency-badge {
+  background: #bd493d;
 }
 
 .booking-meta {
