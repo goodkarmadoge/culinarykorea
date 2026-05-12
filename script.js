@@ -710,7 +710,7 @@ function renderCards(selected) {
 function renderRestaurantCard(restaurant) {
   const status = getBookingStatus(restaurant);
   const media = mediaByName[restaurant.name] || {};
-  const reservationHost = getReservationHost(restaurant.reservationUrl);
+  const reservationPlatform = getReservationPlatform(restaurant.reservationUrl);
   const showChef = restaurant.showChef ? `<p class="show-chef"><strong>Culinary Class Wars:</strong> ${restaurant.showChef}</p>` : "";
   const chefPortrait = media.chefImage ? `
     <img class="chef-portrait" src="${media.chefImage}" alt="${restaurant.chef}" loading="lazy" onerror="this.remove()">
@@ -741,7 +741,7 @@ function renderRestaurantCard(restaurant) {
         <div class="booking-meta">
           <span><strong>Book via:</strong> ${restaurant.platform}</span>
         </div>
-        <a class="booking-link" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">Reserve at ${reservationHost}</a>
+        <a class="booking-link" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">${reservationPlatform}</a>
         <span class="confidence">${restaurant.confidence}</span>
       </div>
     </article>
@@ -944,12 +944,23 @@ function formatDate(date) {
   return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(date);
 }
 
-function getReservationHost(url) {
-  if (url.startsWith("tel:")) return "phone";
+function getReservationPlatform(url) {
+  if (url.startsWith("tel:")) return "Phone";
   try {
-    return new URL(url).hostname.replace(/^www\./, "");
+    const hostname = new URL(url).hostname.replace(/^www\./, "");
+    if (hostname.includes("google.com")) return "Google Maps";
+    if (hostname.includes("catchtable.net")) return "CatchTable";
+    if (hostname.includes("opentable.com")) return "OpenTable";
+    if (hostname.includes("visitseoul.net")) return "Visit Seoul";
+    if (hostname.includes("shillahotels.com")) return "Shilla Hotels";
+    if (hostname.includes("mosuseoul.com")) return "Mosu";
+    if (hostname.includes("mingles.kr")) return "Mingles";
+    if (hostname.includes("jungsik.kr")) return "Jungsik";
+    if (hostname.includes("tridseoul.com")) return "Trid";
+    if (hostname.includes("shiarestaurant.org")) return "SHIA";
+    return "Official Site";
   } catch {
-    return "booking link";
+    return "Booking Link";
   }
 }
 
