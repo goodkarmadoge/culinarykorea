@@ -665,7 +665,7 @@ form.addEventListener("submit", (event) => {
 function render() {
   const selected = restaurants.filter((restaurant) => {
     const cityMatch = trip.city === "All" || restaurant.city === trip.city;
-    const filterMatch = activeFilter === "all" || restaurant.categories.includes(activeFilter);
+    const filterMatch = activeFilter === "all" || restaurant.categories.includes(activeFilter) || restaurant.price === activeFilter;
     return cityMatch && filterMatch;
   });
 
