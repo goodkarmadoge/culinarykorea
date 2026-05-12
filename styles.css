@@ -102,6 +102,48 @@ select {
   z-index: 1;
 }
 
+.brand-header {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: start;
+  gap: 18px;
+  width: 100%;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 50%;
+  background: #000;
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.08),
+    0 20px 54px rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.brand-mark svg {
+  width: 50px;
+  height: 50px;
+}
+
+.brand-mark circle,
+.brand-mark path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brand-mark path:nth-of-type(3),
+.brand-mark path:nth-of-type(4) {
+  fill: currentColor;
+  stroke-width: 0;
+}
+
 .title-block {
   width: 100%;
 }
@@ -781,17 +823,6 @@ h3 {
   text-transform: uppercase;
 }
 
-.raw-link {
-  display: block;
-  max-width: 100%;
-  overflow: hidden;
-  color: #fff;
-  font-size: 0.76rem;
-  font-weight: 800;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .confidence {
   color: var(--muted);
   font-size: 0.76rem;
@@ -861,6 +892,21 @@ h3 {
 }
 
 @media (max-width: 640px) {
+  .brand-header {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 50px;
+    height: 50px;
+  }
+
+  .brand-mark svg {
+    width: 40px;
+    height: 40px;
+  }
+
   h1 {
     font-size: clamp(2rem, 13vw, 3.2rem);
   }

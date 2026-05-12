@@ -742,7 +742,6 @@ function renderRestaurantCard(restaurant) {
           <span><strong>Book via:</strong> ${restaurant.platform}</span>
         </div>
         <a class="booking-link" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">Reserve at ${reservationHost}</a>
-        <a class="raw-link" href="${restaurant.reservationUrl}" target="_blank" rel="noreferrer">${restaurant.reservationUrl}</a>
         <span class="confidence">${restaurant.confidence}</span>
       </div>
     </article>
