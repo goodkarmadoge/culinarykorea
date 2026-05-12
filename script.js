@@ -167,6 +167,310 @@ const restaurants = [
     map: [686, 62]
   },
   {
+    name: "Jungsik",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Yim Jung-sik",
+    categories: ["Fine Dining"],
+    address: "11 Seolleung-ro 158-gil, Gangnam-gu, Seoul",
+    story: "A defining modern Korean fine-dining room that helped make New Korean cuisine a global category.",
+    signature: "Contemporary Korean tasting menu",
+    reservationUrl: "https://www.jungsik.kr/reservation",
+    platform: "Official site",
+    release: { type: "watch", days: 60, urgency: "red", label: "Use the official reservation channel and check as soon as your dates are known.", lead: "Start checking 60 days before arrival; book the moment a preferred date appears." },
+    confidence: "Release timing can vary by season, so verify the official reservation page before locking flights around it.",
+    coordinates: [37.5253, 127.0445],
+    map: [706, 116]
+  },
+  {
+    name: "The 7th Door",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Kim Dae-chun",
+    categories: ["Fine Dining"],
+    address: "4F, 16 Dosan-daero 67-gil, Gangnam-gu, Seoul",
+    story: "A precise Gangnam tasting counter built around fermentation, aging, and restrained modern Korean technique.",
+    signature: "Fermentation-led Korean tasting menu",
+    reservationUrl: "https://www.catchtable.net/search?keyword=The%207th%20Door",
+    platform: "CatchTable",
+    release: { type: "watch", days: 45, urgency: "red", label: "Small dining room and Michelin demand make prime dates disappear quickly.", lead: "Set CatchTable alerts 45 days before arrival and check cancellations daily." },
+    confidence: "Demand is high for Michelin-starred Seoul dates; exact release cadence should be checked on CatchTable.",
+    coordinates: [37.5229, 127.0388],
+    map: [720, 136]
+  },
+  {
+    name: "Eatanic Garden",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Son Jong-won",
+    categories: ["Fine Dining", "Social Heat"],
+    address: "36F, Josun Palace, 231 Teheran-ro, Gangnam-gu, Seoul",
+    story: "A dramatic sky-high fine-dining room inside Josun Palace, built around polished Korean seasonal storytelling.",
+    signature: "Seasonal Korean tasting menu",
+    reservationUrl: "https://www.catchtable.net/search?keyword=Eatanic%20Garden",
+    platform: "CatchTable",
+    release: { type: "watch", days: 60, urgency: "red", label: "Luxury hotel seating and Michelin attention make advance booking important.", lead: "Start checking 60 days before arrival and keep backup dinner times ready." },
+    confidence: "Reserve through current hotel or CatchTable listings; release windows can shift around holidays.",
+    coordinates: [37.5105, 127.0600],
+    map: [738, 176]
+  },
+  {
+    name: "Solbam",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Eom Tae-jun",
+    categories: ["Fine Dining"],
+    address: "4F, 7 Dosan-daero 37-gil, Gangnam-gu, Seoul",
+    story: "A quiet, exacting modern Korean restaurant with a loyal following for elegant seasonal pacing.",
+    signature: "Modern Korean tasting menu",
+    reservationUrl: "https://www.catchtable.net/search?keyword=Solbam",
+    platform: "CatchTable",
+    release: { type: "watch", days: 45, urgency: "red", label: "Prime dinner seats are limited; treat this as a must-book anchor.", lead: "Turn on alerts 45 days before arrival and reserve immediately if a slot opens." },
+    confidence: "Use CatchTable or the restaurant's linked channel to confirm current availability.",
+    coordinates: [37.5237, 127.0379],
+    map: [752, 146]
+  },
+  {
+    name: "Kwonsooksoo",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Kwon Woo-joong",
+    categories: ["Fine Dining"],
+    address: "4F, 37 Apgujeong-ro 80-gil, Gangnam-gu, Seoul",
+    story: "A refined Korean table known for courtly technique, seasonal ingredients, and polished hospitality.",
+    signature: "Traditional Korean tasting course",
+    reservationUrl: "https://www.catchtable.net/search?keyword=Kwonsooksoo",
+    platform: "CatchTable",
+    release: { type: "watch", days: 45, urgency: "yellow", label: "Book well ahead for weekends; weekday lunches may be more flexible.", lead: "Begin checking 45 days before arrival, especially for Friday or Saturday." },
+    confidence: "Public listings confirm booking demand, but exact release rules are not consistently published.",
+    coordinates: [37.5230, 127.0402],
+    map: [764, 128]
+  },
+  {
+    name: "Evett",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Joseph Lidgerwood",
+    categories: ["Fine Dining"],
+    address: "1F, 45 Dosan-daero 45-gil, Gangnam-gu, Seoul",
+    story: "An Australian chef's Seoul restaurant that interprets Korean ingredients through fermentation, memory, and surprise.",
+    signature: "Korean ingredient tasting menu",
+    reservationUrl: "https://www.catchtable.net/search?keyword=Evett",
+    platform: "CatchTable",
+    release: { type: "watch", days: 45, urgency: "yellow", label: "Reservations are essential, with better odds if you can take early or late seatings.", lead: "Start checking 45 days before arrival; monitor cancellations in the final week." },
+    confidence: "Booking channel and availability should be confirmed through current CatchTable listings.",
+    coordinates: [37.5237, 127.0371],
+    map: [772, 156]
+  },
+  {
+    name: "Alla Prima",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Kim Jin-hyuk",
+    categories: ["Fine Dining"],
+    address: "13 Hakdong-ro 17-gil, Gangnam-gu, Seoul",
+    story: "A chef-driven tasting room blending Korean seasonality with Japanese and European fine-dining discipline.",
+    signature: "Seasonal tasting menu",
+    reservationUrl: "https://www.catchtable.net/search?keyword=Alla%20Prima",
+    platform: "CatchTable",
+    release: { type: "watch", days: 45, urgency: "yellow", label: "Reserve ahead for dinner; lunch can be a useful fallback.", lead: "Check 45 days before arrival and keep lunch options open." },
+    confidence: "Public sources confirm high demand; verify the active booking channel before your date.",
+    coordinates: [37.5226, 127.0427],
+    map: [784, 116]
+  },
+  {
+    name: "Soigne",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Lee Jun",
+    categories: ["Fine Dining"],
+    address: "2F, 652 Gangnam-daero, Gangnam-gu, Seoul",
+    story: "A narrative tasting menu restaurant organized like culinary episodes, with a long-running Seoul fan base.",
+    signature: "Episode-style tasting menu",
+    reservationUrl: "https://www.catchtable.net/search?keyword=Soigne",
+    platform: "CatchTable",
+    release: { type: "watch", days: 45, urgency: "yellow", label: "Book in advance, especially for new menu episodes and weekend dinners.", lead: "Start checking 45 days before arrival and recheck after menu changes." },
+    confidence: "Exact opening windows are not consistently visible in public sources.",
+    coordinates: [37.5011, 127.0253],
+    map: [802, 190]
+  },
+  {
+    name: "Zero Complex",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Lee Choong-hu",
+    categories: ["Fine Dining"],
+    address: "Hannam-dong, Yongsan-gu, Seoul",
+    story: "A minimalist tasting counter focused on clean lines, produce, and contemporary Korean-European restraint.",
+    signature: "Seasonal tasting menu",
+    reservationUrl: "https://www.catchtable.net/search?keyword=Zero%20Complex",
+    platform: "CatchTable",
+    release: { type: "watch", days: 30, urgency: "yellow", label: "Monitor for openings; flexibility helps with this small-format fine-dining room.", lead: "Start checking 30 days before arrival and keep alternate dates ready." },
+    confidence: "Public booking details change periodically; confirm through the current booking channel.",
+    coordinates: [37.5416, 126.9904],
+    map: [554, 172]
+  },
+  {
+    name: "Born and Bred",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Jung Sang-won and team",
+    categories: ["Fine Dining", "Social Heat"],
+    address: "1 Majang-ro 42-gil, Seongdong-gu, Seoul",
+    story: "A destination for premium Korean beef, from butcher counter energy to serious omakase-style hanwoo tasting.",
+    signature: "Hanwoo beef omakase",
+    reservationUrl: "https://www.catchtable.net/search?keyword=Born%20and%20Bred",
+    platform: "CatchTable",
+    release: { type: "watch", days: 60, urgency: "red", label: "Hanwoo omakase seats are limited and widely chased by visiting diners.", lead: "Start checking 60 days before arrival and book immediately for prime dinner slots." },
+    confidence: "Availability varies by room and format; confirm the exact branch and course before booking.",
+    coordinates: [37.5440, 127.0487],
+    map: [502, 144]
+  },
+  {
+    name: "Kojima",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Park Kyung-jae",
+    categories: ["Fine Dining"],
+    address: "6F, Boon the Shop, 21 Apgujeong-ro 60-gil, Gangnam-gu, Seoul",
+    story: "One of Seoul's benchmark sushi counters, prized for exacting seafood sourcing and a highly limited seat count.",
+    signature: "Sushi omakase",
+    reservationUrl: "https://www.catchtable.net/search?keyword=Kojima",
+    platform: "CatchTable",
+    release: { type: "watch", days: 60, urgency: "red", label: "Small counter, luxury demand, and limited seatings make this an ASAP booking.", lead: "Set alerts 60 days before arrival and check cancellations frequently." },
+    confidence: "Use the active reservation channel to confirm current seating rules and deposit terms.",
+    coordinates: [37.5250, 127.0462],
+    map: [656, 126]
+  },
+  {
+    name: "La Yeon",
+    city: "Seoul",
+    price: "$$$$",
+    chef: "Kim Sung-il and The Shilla Seoul team",
+    categories: ["Fine Dining"],
+    address: "23F, The Shilla Seoul, 249 Dongho-ro, Jung-gu, Seoul",
+    story: "A landmark hotel restaurant for formal Korean fine dining, known for elegant service and classic technique.",
+    signature: "Korean course menu",
+    reservationUrl: "https://www.shillahotels.com/seoul/dining/viewDining.do?contId=KRN",
+    platform: "Official hotel site",
+    release: { type: "watch", days: 45, urgency: "yellow", label: "Hotel dining reservations should be made early for skyline dinner slots.", lead: "Check 45 days before arrival and call the hotel if online slots are unclear." },
+    confidence: "Use the official hotel page to verify operating days and reservation rules.",
+    coordinates: [37.5559, 127.0052],
+    map: [454, 164]
+  },
+  {
+    name: "Myeongdong Kyoja",
+    city: "Seoul",
+    price: "$",
+    chef: "House team",
+    categories: ["Social Heat"],
+    address: "29 Myeongdong 10-gil, Jung-gu, Seoul",
+    story: "A classic noodle stop with global guidebook fame and constant traveler traffic in the center of Myeongdong.",
+    signature: "Kalguksu and mandu",
+    reservationUrl: "https://www.google.com/maps/search/?api=1&query=Myeongdong%20Kyoja%20Seoul",
+    platform: "Walk-in / map listing",
+    release: { type: "walkin", urgency: "green", label: "No advance reservation needed; queues move quickly but peak lunch is busy.", lead: "Plan as a walk-in and avoid the exact lunch rush if possible." },
+    confidence: "Treat as a tactical walk-in rather than a reservation target.",
+    coordinates: [37.5626, 126.9850],
+    map: [400, 186]
+  },
+  {
+    name: "Woo Lae Oak",
+    city: "Seoul",
+    price: "$$",
+    chef: "House team",
+    categories: ["Social Heat"],
+    address: "62-29 Changgyeonggung-ro, Jung-gu, Seoul",
+    story: "A legendary Seoul naengmyeon and barbecue room that remains a reference point for old-school Korean dining.",
+    signature: "Pyongyang naengmyeon and bulgogi",
+    reservationUrl: "https://www.google.com/maps/search/?api=1&query=Woo%20Lae%20Oak%20Seoul",
+    platform: "Walk-in / phone check",
+    release: { type: "walkin", urgency: "green", label: "Walk-ins are common, but large groups should phone ahead when possible.", lead: "Go early for lunch or reserve by phone if traveling with a group." },
+    confidence: "Online reservation rules are not consistently available in English.",
+    coordinates: [37.5683, 126.9989],
+    map: [426, 158]
+  },
+  {
+    name: "Gwangjang Market Food Alley",
+    city: "Seoul",
+    price: "$",
+    chef: "Market vendors",
+    categories: ["Social Heat"],
+    address: "88 Changgyeonggung-ro, Jongno-gu, Seoul",
+    story: "A high-energy market crawl for bindaetteok, kimbap, knife-cut noodles, and the street-food scenes travelers save all year.",
+    signature: "Bindaetteok, mayak kimbap, kalguksu",
+    reservationUrl: "https://www.google.com/maps/search/?api=1&query=Gwangjang%20Market%20Seoul",
+    platform: "Walk-in",
+    release: { type: "walkin", urgency: "green", label: "No booking required; timing matters more than reservation strategy.", lead: "Go before peak dinner or late afternoon for better movement through the aisles." },
+    confidence: "Vendor hours vary, so use the map listing on the day of your visit.",
+    coordinates: [37.5701, 126.9996],
+    map: [438, 148]
+  },
+  {
+    name: "London Bagel Museum Anguk",
+    city: "Seoul",
+    price: "$$",
+    chef: "House team",
+    categories: ["Social Heat"],
+    address: "20 Bukchon-ro 4-gil, Jongno-gu, Seoul",
+    story: "A viral bakery-cafe whose lines became part of the Seoul itinerary for social-media food travelers.",
+    signature: "Bagels, scallion cream cheese, cafe breakfast",
+    reservationUrl: "https://www.google.com/maps/search/?api=1&query=London%20Bagel%20Museum%20Anguk",
+    platform: "Queue / local waitlist",
+    release: { type: "walkin", urgency: "yellow", label: "Treat it like a queue strategy, not a reservation: arrive early or use any available local waitlist.", lead: "Arrive near opening if this is a must-hit stop." },
+    confidence: "Queue systems can change, so check the latest local listing before going.",
+    coordinates: [37.5793, 126.9868],
+    map: [378, 122]
+  },
+  {
+    name: "Cafe Onion Anguk",
+    city: "Seoul",
+    price: "$$",
+    chef: "House team",
+    categories: ["Social Heat"],
+    address: "5 Gyedong-gil, Jongno-gu, Seoul",
+    story: "A hanok cafe with enduring visual pull, making it a reliable breakfast or coffee stop near Bukchon.",
+    signature: "Pastries, coffee, pandoro",
+    reservationUrl: "https://www.google.com/maps/search/?api=1&query=Cafe%20Onion%20Anguk%20Seoul",
+    platform: "Walk-in",
+    release: { type: "walkin", urgency: "green", label: "No advance booking needed, but seating is easier off-peak.", lead: "Go early morning or mid-afternoon for a calmer visit." },
+    confidence: "Opening hours and wait policies can change by branch.",
+    coordinates: [37.5778, 126.9866],
+    map: [366, 132]
+  },
+  {
+    name: "Geumdwaeji Sikdang",
+    city: "Seoul",
+    price: "$$",
+    chef: "House team",
+    categories: ["Social Heat"],
+    address: "149 Dasan-ro, Jung-gu, Seoul",
+    story: "A pork barbecue favorite amplified by Michelin Bib Gourmand attention and celebrity traveler lore.",
+    signature: "Aged pork barbecue",
+    reservationUrl: "https://www.google.com/maps/search/?api=1&query=Geumdwaeji%20Sikdang%20Seoul",
+    platform: "Queue / phone check",
+    release: { type: "walkin", urgency: "yellow", label: "Expect waits; arrive before peak meal times or check same-day queue options.", lead: "Plan an early dinner and keep a backup nearby." },
+    confidence: "Reservation and queue rules are not reliably published in English.",
+    coordinates: [37.5570, 127.0118],
+    map: [470, 184]
+  },
+  {
+    name: "Hadongkwan",
+    city: "Seoul",
+    price: "$",
+    chef: "House team",
+    categories: ["Social Heat"],
+    address: "12 Myeongdong 9-gil, Jung-gu, Seoul",
+    story: "A historic gomtang house where the order is simple, fast, and deeply tied to Seoul breakfast culture.",
+    signature: "Gomtang beef soup",
+    reservationUrl: "https://www.google.com/maps/search/?api=1&query=Hadongkwan%20Seoul",
+    platform: "Walk-in",
+    release: { type: "walkin", urgency: "green", label: "No reservation needed; go earlier in the day because service can end after sellout.", lead: "Plan this as a breakfast or early lunch stop." },
+    confidence: "Hours can vary by day and sellout, so verify before heading over.",
+    coordinates: [37.5644, 126.9848],
+    map: [390, 176]
+  },
+  {
     name: "SHIA",
     city: "Washington, D.C.",
     price: "$$$$",
@@ -230,6 +534,82 @@ const mediaByName = {
   "Onjium": {
     image: "https://www.theworlds50best.com/discovery/filestore/jpg/onjium-seoul-fb.jpg",
     credit: "50 Best Discovery"
+  },
+  "Jungsik": {
+    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color dining reference"
+  },
+  "The 7th Door": {
+    image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color tasting menu reference"
+  },
+  "Eatanic Garden": {
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color restaurant reference"
+  },
+  "Solbam": {
+    image: "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color Korean dining reference"
+  },
+  "Kwonsooksoo": {
+    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color plated course reference"
+  },
+  "Evett": {
+    image: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color ingredient reference"
+  },
+  "Alla Prima": {
+    image: "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color omakase reference"
+  },
+  "Soigne": {
+    image: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color dining reference"
+  },
+  "Zero Complex": {
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color seasonal plate reference"
+  },
+  "Born and Bred": {
+    image: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color beef dining reference"
+  },
+  "Kojima": {
+    image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color sushi reference"
+  },
+  "La Yeon": {
+    image: "https://images.unsplash.com/photo-1532636875304-0c89119d9b4d?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color Korean table reference"
+  },
+  "Myeongdong Kyoja": {
+    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color noodle reference"
+  },
+  "Woo Lae Oak": {
+    image: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color Korean barbecue reference"
+  },
+  "Gwangjang Market Food Alley": {
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color market food reference"
+  },
+  "London Bagel Museum Anguk": {
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color bakery reference"
+  },
+  "Cafe Onion Anguk": {
+    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color cafe reference"
+  },
+  "Geumdwaeji Sikdang": {
+    image: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color pork barbecue reference"
+  },
+  "Hadongkwan": {
+    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80",
+    credit: "Full-color soup reference"
   },
   "SHIA": {
     image: "https://shiarestaurant.org/wp-content/uploads/2025/10/header-about-1.jpg",
